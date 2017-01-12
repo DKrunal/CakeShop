@@ -1,0 +1,13 @@
+com\cakeshop\dao\UserDAO.class
+com\cakeshop\model\Supplier.class
+com\cakeshop\dao\SupplierDAO.class
+com\cakeshop\model\User.class
+com\cakeshop\config\ApplicationContextConfig.class
+com\cakeshop\dao\impl\ProductDAOImpl.class
+com\cakeshop\dao\impl\CategoryDAOImpl.class
+com\cakeshop\dao\impl\UserDAOImpl.class
+com\cakeshop\dao\ProductDAO.class
+com\cakeshop\model\Product.class
+com\cakeshop\model\Category.class
+com\cakeshop\dao\CategoryDAO.class
+com\cakeshop\dao\impl\SupplierDAOImpl.class
