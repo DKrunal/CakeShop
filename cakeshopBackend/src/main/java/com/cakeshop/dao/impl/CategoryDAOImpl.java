@@ -5,6 +5,8 @@ import java.util.List;
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.SessionFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -12,8 +14,11 @@ import org.springframework.transaction.annotation.Transactional;
 import com.cakeshop.dao.CategoryDAO;
 import com.cakeshop.model.Category;
 
+
 @Repository
 public class CategoryDAOImpl implements CategoryDAO {
+	private static Logger log = LoggerFactory.getLogger(CategoryDAOImpl.class);
+
 	
 	@Autowired
 	private SessionFactory sessionFactory;
@@ -31,11 +36,29 @@ public class CategoryDAOImpl implements CategoryDAO {
 		return (Category) sessionFactory.getCurrentSession().get(Category.class, id);
 
 	}
+	@Transactional
+	public Category getCategoryByName(String name) {
+		return (Category) sessionFactory.getCurrentSession().get(Category.class, name);
+
+	}
 
 	@Transactional
 	public boolean save(Category category) {
 		try {
 			sessionFactory.getCurrentSession().save(category);
+		} catch (HibernateException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return false;
+		}
+		
+		return true;
+	}
+	@Transactional
+	public boolean saveOrUpdate(Category category) {
+		log.debug(" Starting of the method saveOrUpdate");
+		try {
+			sessionFactory.getCurrentSession().saveOrUpdate(category);
 		} catch (HibernateException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -57,14 +80,18 @@ public class CategoryDAOImpl implements CategoryDAO {
 	}
 	@Transactional
 	public boolean delete(String id) {
+		log.debug("Starting of the method : delete ");
 		try {
-			sessionFactory.getCurrentSession().delete(id);
+			Category category = new Category();
+			category.setId(id);
+			sessionFactory.getCurrentSession().delete(category);
+			log.debug("Ending of the method : delete ");
+			return true;
 		} catch (HibernateException e) {
-			// TODO Auto-generated catch block
+			log.error("Not able to delete the record:" + e.getMessage());
 			e.printStackTrace();
 			return false;
 		}
-		return true;
 	}
-
 }
+		

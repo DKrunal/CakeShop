@@ -11,5 +11,7 @@ public interface ProductDAO {
 	public boolean save(Product product);
 	public boolean update(Product product);
 	public boolean delete(String id);
+	public boolean saveOrUpdate(Product product);
+	public Product getProductByName(String name);
 
 }

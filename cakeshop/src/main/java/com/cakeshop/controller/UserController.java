@@ -1,5 +1,7 @@
 package com.cakeshop.controller;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
@@ -48,8 +50,6 @@ public class UserController {
 	public ModelAndView validate(@RequestParam(value = "id") String id,
 			@RequestParam(value = "password") String password) {
 		log.debug("Starting of the method validate");
-
-		// ModelAndView mv = new ModelAndView("/home");
 		ModelAndView mv = new ModelAndView("/index");
 		user = userDAO.isValid(id, password);
 		// if the record exist with this userID and password it will return user
@@ -58,14 +58,15 @@ public class UserController {
 		if (user != null) {
 			log.debug("Valid Credentials");
 
-			session.setAttribute("loggedInUser", user.getId());
-			session.setAttribute("loggedInUserID", user.getPassword());
+			session.setAttribute("loggedInUser", user.getFname());
+			session.setAttribute("loggedInUserID", user.getId());
 
 			session.setAttribute("user", user); //
 
 			if (user.getRole().equals("ROLE_ADMIN")) {
 				log.debug("Logged in as Admin");
 				mv.addObject("isAdmin", "true");
+				session.setAttribute("isAdmin", "true");
 				session.setAttribute("supplier", supplier);
 				session.setAttribute("supplierList", supplierDAO.getSuppliers());
 
@@ -104,5 +105,27 @@ public class UserController {
 		return mv;
 	}
 	
+	@RequestMapping("/logOut")
+	public ModelAndView logout(HttpServletRequest request,HttpServletResponse response) {
+		log.debug("Starting of the method logout");
+		ModelAndView mv = new ModelAndView("/index");
+	    session.invalidate();	// session
+	    session =request.getSession(true);
+		session.setAttribute("category", category);
+		session.setAttribute("categoryList", categoryDAO.getCategory());
 
+		mv.addObject("logoutMessage", "You successfully logged out");
+		mv.addObject("loggedOut", "true");
+		
+		/* Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		
+		    if (auth != null){    
+		        new SecurityContextLogoutHandler().logout(request, response, auth);
+		    }
+		  //  return "redirect:/login?logout";
+		    */
+		    
+		log.debug("Ending of the method logout");
+		return mv;
+	}
 }

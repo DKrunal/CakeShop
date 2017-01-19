@@ -39,9 +39,9 @@
 									<a href="#"><img src="http://placehold.it/360x240" alt=""></a>
 								</div>
 								<div class="caption">
-									<h4>Praesent commodo</h4>
-									<p>Nullam Condimentum Nibh Etiam Sem</p>
-									<a class="btn btn-mini" href="#">» Read More</a>
+									<h4>Strawberry Cakes</h4>
+									<p>New Delicious</p>
+									<a class="btn btn-mini" href="category">»More Info</a>
 								</div>
                             </div>
                         </li>

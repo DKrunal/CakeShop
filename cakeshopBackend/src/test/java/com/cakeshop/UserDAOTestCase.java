@@ -1,14 +1,11 @@
 package com.cakeshop;
 
 import org.junit.BeforeClass;
-import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import com.cakeshop.dao.UserDAO;
 import com.cakeshop.model.User;
-
-import junit.framework.Assert;
 
 public class UserDAOTestCase {
 

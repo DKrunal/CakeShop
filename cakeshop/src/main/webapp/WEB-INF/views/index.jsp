@@ -8,8 +8,29 @@
 <title>Cake Shop</title>
 
 <body>
+
 <%@ include file="Head&Foot/header.jsp"%>
 
+<c:if test="${isAdmin == true }">
+							<ul class="nav navbar-nav collapse navbar-collapse">
+							<li class="dropdown">Manage<i class="fa fa-angle-down"></i></a>
+                                    <ul role="menu" class="sub-menu">
+                                       <li><a href="Supplier">Manage Suppliers</a></li>
+								<li><a href="Product">Manage Products</a></li>
+								<li><a href="Category">Manage Category</a></li>
+                                    </ul>
+                                </li> 
+                                </ul>
+							</c:if>
+<c:if test="${!empty isAdminClickedSuppliers}">
+<%@include file="Supplier.jsp" %>
+</c:if>
+<c:if test="${!empty isAdminClickedCategories}">
+<%@include file="Category.jsp" %>
+</c:if>
+<c:if test="${!empty isAdminClickedProducts}">
+<%@include file="Product.jsp" %>
+</c:if>
 <body style="padding:0px; margin:0px; background-color:#fff;font-family:'Open Sans',sans-serif,arial,helvetica,verdana">
 
     <!-- #region Jssor Slider Begin -->
@@ -182,4 +203,5 @@
 <%@ include file="infoslider.jsp"%>
 <%@ include file="Head&Foot/footer.jsp"%>
 </body>
+
 </html>

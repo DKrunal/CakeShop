@@ -10,7 +10,7 @@ http://www.springframework.org/schema/mvc/spring-mvc.xsd
 http://www.springframework.org/schema/context
 http://www.springframework.org/schema/context/spring-context.xsd">
 
-	<context:component-scan base-package="com.cakeshop" />
+ <context:component-scan base-package="com.cakeshop" />
 
 	<bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
@@ -21,8 +21,14 @@ http://www.springframework.org/schema/context/spring-context.xsd">
 			<value>.jsp</value>
 		</property>
 	</bean>
+<bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
 
-	<mvc:resources mapping="/resources/**" location="/resources/" />
+		 <!-- setting maximum upload size -->
+		<property name="maxUploadSize" value="100000" />
+
+	</bean>
+<mvc:resources mapping="/resources/**" location="/resources/" />
 
 	<mvc:annotation-driven />
 	 <mvc:default-servlet-handler/>
