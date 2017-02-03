@@ -40,8 +40,9 @@ public class ProductController {
 	@Autowired
 	private SupplierDAO supplierDAO;
 	
-	private String path ="F:\\Digital Transformation\\New folder\\img\\";
+	private String path ="resources/img/";
 	@RequestMapping(value="/manage_product_add", method=RequestMethod.POST)
+	
 	public String addProduct(@ModelAttribute("product")Product product,@RequestParam("image")MultipartFile file,Model model){
 		Category category = categoryDAO.getCategoryByName(product.getCategory().getName());
 		

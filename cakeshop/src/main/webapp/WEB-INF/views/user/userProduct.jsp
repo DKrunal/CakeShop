@@ -3,6 +3,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -12,33 +13,36 @@
 <title>Product</title>
 </head>
 <body>
+	<c:if test="${!empty productList}">
+	<c:forEach items="${productList}" var="product">
 <div class="container" style="margin-top:50px;">
 	<div class="row">
     	<div class="col-xs-12 col-sm-6 col-md-3">
             <div class="col-item">
                 <div class="post-img-content">
-                    <img src="http://placehold.it/350x260" class="img-responsive" />
+                    <img src="resources/img/" class="img-responsive" />
                     <span class="post-title">
-                        <b>Perfumes</b><br>
-                        <b>Clássico</b>
+                        <b>${category.name}</b><br>
                     </span>
-                    <span class="round-tag">-15%</span>
+                    <span class="round-tag">No Discount Yet</span>
                 </div>
                 <div class="info">
                     <div class="row">
                         <div class="price col-md-6">
-                            <h5> Sample Product</h5>
-                            <h5 class="price-text-color">19.99€</h5>
+                            <h5>${product.name}</h5>
+                            <h5 class="price-text-color">${product.price}</h5>
                         </div>
-                        <div class="rating hidden-sm col-md-6">
-                            <h5 class="price-text-color">14.99€</h5>
+                       <div class="rating hidden-sm col-md-6">
+                            <i class="price-text-color fa fa-star"></i><i class="price-text-color fa fa-star">
+                            </i><i class="price-text-color fa fa-star"></i><i class="price-text-color fa fa-star">
+                            </i><i class="fa fa-star"></i>
                         </div>
                     </div>
                     <div class="separator clear-left">
                         <p class="btn-add">
                             <i class="fa fa-shopping-cart"></i><a href="#" class="hidden-sm">Add to cart</a></p>
                         <p class="btn-details">
-                            <i class="fa fa-list"></i><a href="#" class="hidden-sm">More details</a></p>
+                            <i class="fa fa-list"></i><a href="selectedProduct/${product.product_id}" class="hidden-sm">More details</a></p>
                     </div>
                     <div class="clearfix">
                     </div>
@@ -47,5 +51,7 @@
         </div>
         </div>
         </div>
+        </c:forEach>
+        </c:if>
 </body>
 </html>

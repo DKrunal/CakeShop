@@ -95,5 +95,18 @@ public class ProductDAOImpl implements ProductDAO {
 		return (Product) sessionFactory.getCurrentSession().get(Product.class, name);
 
 	}
+	
+	@Transactional
+	public List<Product> getProductByCategoryName(String category_id) {
+		
+		log.debug("starting of method getProductByCategoryName ");
+		String hql = "from Product where category_id =" + "'"+ category_id +"'";
+		log.info(hql);
+		Query query = sessionFactory.getCurrentSession().createQuery(hql);
+		log.debug("ending of method getProductByCategoryName ");
+
+		return query.list();
+	
+	}
 
 }

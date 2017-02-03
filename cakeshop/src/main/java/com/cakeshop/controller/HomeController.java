@@ -8,7 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.cakeshop.dao.CategoryDAO;
@@ -91,19 +93,13 @@ public String index(@ModelAttribute("selectedProduct") final Product selectedPro
 	
 	 log.debug("Starting of the method reDirectToHome");
 		model.addAttribute("selectedProduct", selectedProduct);
-	 model.addAttribute("categoryList", this.categoryDAO.getCategory());
+	    model.addAttribute("categoryList", this.categoryDAO.getCategory());
 	    model.addAttribute("productList", this.productDAO.getProduct());
 		log.debug("Ending of the method reDirectToHome");
 		return "/index";
 	}
  
- @RequestMapping("/userShop")
- public String userProduct(Model model){
- 	model.addAttribute("isUserClickShop", "true");
- 	log.debug("Starting of the method userShop");
- 	log.debug("Ending of the method userShop");
- 	return "index";
- }
+
 }
 
 
