@@ -1,9 +1,3 @@
-com\cakeshop\controller\UserController.class
-com\cakeshop\util\FileUtil.class
-com\cakeshop\controller\CategoryController.class
-com\cakeshop\controller\ProductController.class
-com\cakeshop\controller\SupplierController.class
-com\cakeshop\securityController\SecurityController.class
 com\cakeshop\controller\AdminController.class
-com\cakeshop\exceptionHandler\ShoppingCartExceptionHandler.class
-com\cakeshop\controller\HomeController.class
+com\cakeshop\util\FileUtil.class
+com\cakeshop\securityController\SecurityController.class

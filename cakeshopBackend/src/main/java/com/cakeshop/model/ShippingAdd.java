@@ -2,10 +2,16 @@ package com.cakeshop.model;
 
 import java.io.Serializable;
 
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
+import org.springframework.stereotype.Component;
+@Entity
+@Table
+@Component
 public class ShippingAdd implements Serializable {
 
 	private static final long serialVersionUID = -4827702005129017884L;

@@ -1,10 +1,17 @@
 package com.cakeshop.model;
 
 import java.io.Serializable;
+
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
+import org.springframework.stereotype.Component;
+@Entity
+@Table
+@Component
 public class CartItem implements Serializable {
 
 	private static final long serialVersionUID = 1957094922696615171L;

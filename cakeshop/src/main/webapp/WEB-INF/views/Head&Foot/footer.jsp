@@ -1,5 +1,4 @@
-<link rel="stylesheet" href="resources/css/demo1.css">
-	<link rel="stylesheet" href="resources/css/footer-distributed.css">
+<link rel="stylesheet" href="resources/css/footer-distributed.css">
 	
 	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
 <!-- The content of your page would go here. -->

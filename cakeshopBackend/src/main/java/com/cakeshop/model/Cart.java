@@ -3,12 +3,18 @@ package com.cakeshop.model;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
+import org.springframework.stereotype.Component;
 
+@Entity
+@Table
+@Component
 public class Cart implements Serializable{
 
 	private static final long serialVersionUID = -8955103200258023974L;

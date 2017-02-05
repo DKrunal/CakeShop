@@ -23,14 +23,14 @@
 							<img id="item-display" src="1.jpg" alt=""></img>
 						</div>
 						<div class="col-md-7">
-							<div class="product-title"><c:out value="${product.name}"/></div>
+							<div class="product-title"><u><c:out value="${product.name}"/></u></div>
 							<div class="product-rating">
 								<i class="fa fa-star gold"></i> <i class="fa fa-star gold"></i>
 								<i class="fa fa-star gold"></i> <i class="fa fa-star gold"></i>
 								<i class="fa fa-star-o"></i>
 							</div>
 							<hr>
-							<div class="product-price">${product.price}</div>
+							<div class="product-price">Rs: ${product.price}/-</div>
 							<div class="product-stock">In Stock</div>
 							<hr>
 							<div class="btn-group cart">

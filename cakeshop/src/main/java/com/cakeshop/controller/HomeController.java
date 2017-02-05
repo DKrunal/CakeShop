@@ -65,12 +65,8 @@ public class HomeController {
 	session.setAttribute("category", category);
 	session.setAttribute("product", product);
 	session.setAttribute("supplier", supplier);
-	
-	
 	session.setAttribute("categoryList", categoryDAO.getCategory());
-	
 	session.setAttribute("supplierList", supplierDAO.getSuppliers());
-
 	log.debug("Ending of the method onLoad");
 	return mv;
 
@@ -78,7 +74,6 @@ public class HomeController {
 
 @RequestMapping("/register")
 public ModelAndView signup(){
-	
 	log.debug("Starting of the method registerHere");
 	ModelAndView mv = new ModelAndView("Signup");
 	mv.addObject("user", user);

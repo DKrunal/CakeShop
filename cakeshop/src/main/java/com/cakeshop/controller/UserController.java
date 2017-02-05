@@ -46,7 +46,7 @@ public class UserController {
 	@Autowired
 	private HttpSession session;
 
-	@RequestMapping(value = "/validate", method = RequestMethod.POST)
+	@RequestMapping(value ="/validate", method = RequestMethod.POST)
 	public ModelAndView validate(@RequestParam(value = "id") String id,
 			@RequestParam(value = "password") String password) {
 		log.debug("Starting of the method validate");
@@ -88,8 +88,8 @@ public class UserController {
 		log.debug("Ending of the method validate");
 		return mv;
 	}
-
-	@RequestMapping(value = "/signup", method = RequestMethod.POST)
+	
+	@RequestMapping(value = "/signup",method = RequestMethod.POST)
 	public ModelAndView signup(@ModelAttribute User user) {
 		log.debug("Starting of the method registerUser");
 		System.out.println("Starting of the method registerUser"+user.getId());

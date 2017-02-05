@@ -24,18 +24,19 @@
                     <span class="post-title">
                         <b>${category.name}</b><br>
                     </span>
-                    <span class="round-tag">No Discount Yet</span>
+                    <span class="round-tag">0%</span>
                 </div>
                 <div class="info">
                     <div class="row">
                         <div class="price col-md-6">
                             <h5>${product.name}</h5>
-                            <h5 class="price-text-color">${product.price}</h5>
+                           
                         </div>
                        <div class="rating hidden-sm col-md-6">
                             <i class="price-text-color fa fa-star"></i><i class="price-text-color fa fa-star">
                             </i><i class="price-text-color fa fa-star"></i><i class="price-text-color fa fa-star">
                             </i><i class="fa fa-star"></i>
+                             <h5 class="price-text-color">Rs:${product.price}/-</h5>
                         </div>
                     </div>
                     <div class="separator clear-left">

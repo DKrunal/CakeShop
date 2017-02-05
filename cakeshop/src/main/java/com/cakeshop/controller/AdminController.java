@@ -82,7 +82,6 @@ public class AdminController {
 		ModelAndView mv = new ModelAndView("index");
 		mv.addObject("supplier", supplier);
 		mv.addObject("isAdmin", "true");
-
 		mv.addObject("isAdminClickedSuppliers", "true");
 		mv.addObject("supplierList", supplierDAO.getSuppliers());
 		log.debug("Ending of the method suppliers");
