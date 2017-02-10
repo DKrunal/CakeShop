@@ -57,6 +57,7 @@ public class HomeController {
 		log.debug("Ending of the method loginHere");
 		return mv;
 	}*/
+	
 @RequestMapping("/")
 	public ModelAndView onLoad(HttpSession session){
 	

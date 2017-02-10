@@ -14,13 +14,15 @@ import org.springframework.orm.hibernate4.HibernateTransactionManager;
 import org.springframework.orm.hibernate4.LocalSessionFactoryBuilder;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
-import com.cakeshop.model.BillingAdd;
+import com.cakeshop.model.Billing;
+import com.cakeshop.model.BillingAddress;
 import com.cakeshop.model.Cart;
 import com.cakeshop.model.CartItem;
 import com.cakeshop.model.Category;
 import com.cakeshop.model.Customer;
+import com.cakeshop.model.Payment;
 import com.cakeshop.model.Product;
-import com.cakeshop.model.ShippingAdd;
+import com.cakeshop.model.ShippingAddress;
 import com.cakeshop.model.Supplier;
 import com.cakeshop.model.User;
 
@@ -64,11 +66,13 @@ public class ApplicationContextConfig {
 		sessionBuilder.addAnnotatedClasses(Supplier.class);
 		sessionBuilder.addAnnotatedClasses(Product.class);
 		sessionBuilder.addAnnotatedClasses(Category.class);
-		sessionBuilder.addAnnotatedClasses(BillingAdd.class);
+		sessionBuilder.addAnnotatedClasses(BillingAddress.class);
 		sessionBuilder.addAnnotatedClasses(Cart.class);
 		sessionBuilder.addAnnotatedClasses(CartItem.class);
 		sessionBuilder.addAnnotatedClasses(Customer.class);
-		sessionBuilder.addAnnotatedClasses(ShippingAdd.class);
+		sessionBuilder.addAnnotatedClasses(ShippingAddress.class);
+		sessionBuilder.addAnnotatedClasses(Payment.class);
+		sessionBuilder.addAnnotatedClass(Billing.class);
 
 		return sessionBuilder.buildSessionFactory();
 	}

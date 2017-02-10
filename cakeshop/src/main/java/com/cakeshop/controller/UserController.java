@@ -54,7 +54,7 @@ public class UserController {
 		user = userDAO.isValid(id, password);
 		// if the record exist with this userID and password it will return user
 		// details else will return null
-
+	
 		if (user != null) {
 			log.debug("Valid Credentials");
 

@@ -38,10 +38,10 @@ public class Customer implements Serializable {
 	    private boolean enabled;
 	    
 	    @OneToOne
-	    private BillingAdd billingAdd;
+	    private BillingAddress billingAdd;
 
 	    @OneToOne
-	    private ShippingAdd shippingAdd;
+	    private ShippingAddress shippingAdd;
 	    
 	    @OneToOne
 	    private Cart cart;
@@ -102,19 +102,19 @@ public class Customer implements Serializable {
 			this.enabled = enabled;
 		}
 
-		public BillingAdd getBillingAdd() {
+		public BillingAddress getBillingAdd() {
 			return billingAdd;
 		}
 
-		public void setBillingAdd(BillingAdd billingAdd) {
+		public void setBillingAdd(BillingAddress billingAdd) {
 			this.billingAdd = billingAdd;
 		}
 
-		public ShippingAdd getShippingAdd() {
+		public ShippingAddress getShippingAdd() {
 			return shippingAdd;
 		}
 
-		public void setShippingAdd(ShippingAdd shippingAdd) {
+		public void setShippingAdd(ShippingAddress shippingAdd) {
 			this.shippingAdd = shippingAdd;
 		}
 

@@ -37,7 +37,7 @@ public class SecurityController {
 	log.debug("Starting Of the method access Denied");
 	model.addAttribute("errorMessage", "you are not authorized to access this page");
 	log.debug("Ending Of the method access Denied");
-		return "index";
+		return "accessDenied";
 		
 	}
 	

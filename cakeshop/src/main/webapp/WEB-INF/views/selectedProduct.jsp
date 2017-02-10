@@ -23,7 +23,9 @@
 							<img id="item-display" src="1.jpg" alt=""></img>
 						</div>
 						<div class="col-md-7">
-							<div class="product-title"><u><c:out value="${product.name}"/></u></div>
+							<div class="product-title">
+								<u><c:out value="${product.name}" /></u>
+							</div>
 							<div class="product-rating">
 								<i class="fa fa-star gold"></i> <i class="fa fa-star gold"></i>
 								<i class="fa fa-star gold"></i> <i class="fa fa-star gold"></i>
@@ -33,13 +35,27 @@
 							<div class="product-price">Rs: ${product.price}/-</div>
 							<div class="product-stock">In Stock</div>
 							<hr>
+							<c:choose>
+								<c:when test="${product.stock == 0}">
+									<button class="btn btn-danger btn-lg disabled">Out Of
+										Stock</button>
+								</c:when>
+								<c:otherwise>
+									<a class="btn btn-success btn-block"
+										href="<c:url value='MyCart_add-${product.product_id}' />">Add
+										to Cart</a>
+									<a class="btn btn-warning btn-block"
+										href="<c:url value='buy_now-${product.product_id}' />">Buy
+										Now</a>
+								</c:otherwise>
+							</c:choose>
 							<div class="btn-group cart">
-								<button type="button" class="btn btn-success">Add to
-									cart</button>
+								<button type="submit" class="btn btn-success"
+									onclick="cart_add-${product.product_id}">Add to cart</button>
 							</div>
 							<div class="btn-group wishlist">
-								<button type="button" class="btn btn-danger">Add to
-									wishlist</button>
+								<button type="submit" class="btn btn-danger"
+									onclick="buy_now-${product.product_id}">Buy Now</button>
 							</div>
 						</div>
 					</div>

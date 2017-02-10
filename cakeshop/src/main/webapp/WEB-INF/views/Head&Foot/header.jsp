@@ -34,7 +34,7 @@
 													<li><a href="userShop/${category.name}">${category.name}</a></li>
 													</c:forEach>
 												</ul></li>
-												<li><a href="#">Cart</a></li>
+												<li><a href="MyCart">Cart(${cartSize})</a></li>
 												<li><a href="register">Signup</a></li>
 												
 											<li><a class="btn btn-outline btn-circle collapsed"
@@ -46,7 +46,7 @@
 							<li><a href="index">Home</a></li>
 											<li><a href="#">News</a></li>
 											<c:if test="${isAdmin == false }">
-												<li><a href="#">Cart</a></li>
+												<li><a href="MyCart">Cart(${cartSize})</a></li>
 											</c:if>
 											<c:if test="${isAdmin == true }">
 

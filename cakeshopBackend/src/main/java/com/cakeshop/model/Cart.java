@@ -23,13 +23,17 @@ public class Cart implements Serializable{
 	 	@GeneratedValue
 	    private int cartId;
 		
-		@OneToMany
-		private List<CartItem> cartItems;
+		private String product_id;
 		
-		@OneToOne
-		private Customer customer;
+		private String product_name;
 		
-	    private double grandTotal;
+		private int price;
+		
+		private int quantity;
+		
+		private String status;
+		
+		private String mail_id;
 
 		public int getCartId() {
 			return cartId;
@@ -39,29 +43,55 @@ public class Cart implements Serializable{
 			this.cartId = cartId;
 		}
 
-		public List<CartItem> getCartItems() {
-			return cartItems;
+		public String getProduct_id() {
+			return product_id;
 		}
 
-		public void setCartItems(List<CartItem> cartItems) {
-			this.cartItems = cartItems;
+		public void setProduct_id(String product_id) {
+			this.product_id = product_id;
 		}
 
-		public Customer getCustomer() {
-			return customer;
+		public String getProduct_name() {
+			return product_name;
 		}
 
-		public void setCustomer(Customer customer) {
-			this.customer = customer;
+		public void setProduct_name(String product_name) {
+			this.product_name = product_name;
 		}
 
-		public double getGrandTotal() {
-			return grandTotal;
+		public int getPrice() {
+			return price;
 		}
 
-		public void setGrandTotal(double grandTotal) {
-			this.grandTotal = grandTotal;
+		public void setPrice(int price) {
+			this.price = price;
 		}
+
+		public int getQuantity() {
+			return quantity;
+		}
+
+		public void setQuantity(int quantity) {
+			this.quantity = quantity;
+		}
+
+		public String getStatus() {
+			return status;
+		}
+
+		public void setStatus(String status) {
+			this.status = status;
+		}
+
+		public String getMail_id() {
+			return mail_id;
+		}
+
+		public void setMail_id(String mail_id) {
+			this.mail_id = mail_id;
+		}
+
+		
 	    
 	    
 		

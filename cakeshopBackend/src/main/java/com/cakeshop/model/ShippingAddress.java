@@ -12,14 +12,14 @@ import org.springframework.stereotype.Component;
 @Entity
 @Table
 @Component
-public class ShippingAdd implements Serializable {
+public class ShippingAddress implements Serializable {
 
 	private static final long serialVersionUID = -4827702005129017884L;
 
 	
 	@Id
     @GeneratedValue
-    private int shippingAddId;
+    private int shippingAddressId;
 	
 	private String Line1;
 	 
@@ -37,11 +37,11 @@ public class ShippingAdd implements Serializable {
     private Customer customer;
 
 	public int getShippingAddId() {
-		return shippingAddId;
+		return shippingAddressId;
 	}
 
 	public void setShippingAddId(int shippingAddId) {
-		this.shippingAddId = shippingAddId;
+		this.shippingAddressId = shippingAddId;
 	}
 
 	public String getLine1() {
