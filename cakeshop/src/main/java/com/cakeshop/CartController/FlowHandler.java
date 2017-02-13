@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.cakeshop.model.BillingAddress;
+import com.cakeshop.model.CardDetail;
 import com.cakeshop.model.Order;
 import com.cakeshop.model.ShippingAddress;
 
@@ -36,9 +37,10 @@ public class FlowHandler {
 		return "success";	
 	}
 	
-/*	public String addPaymentMethod(Order order, PaymentMethod paymentMethod){
-		log.debug("WebFLow mehtod --> addPaymentMethod");
-		order.setPaymentMethod(paymentMethod);
+	/*public String addCardDetail(Order order, CardDetail cardDetail){
+		log.debug("WebFLow mehtod --> addCardDetail");
+		order.setCardDetail(cardDetail);
 		return "success";	
 	}*/
+	
 	}

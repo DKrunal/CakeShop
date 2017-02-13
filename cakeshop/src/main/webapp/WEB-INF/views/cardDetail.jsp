@@ -84,7 +84,7 @@
 						</div>
 						<div class="col-md-offset-3">
 							<input type="submit" value="Checkout"
-								name="_eventId_confirmCheckout" class="btn btn-md btn-success">
+								name="_eventId_submitPaymentMethod" class="btn btn-md btn-success">
 							<input type="submit" value="Cancel" name="_eventId_cancel"
 								class="btn btn-md btn-danger">
 						</div>

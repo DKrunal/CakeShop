@@ -20,8 +20,8 @@ http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
 <context-param>
 <param-name>contextConfigLocation</param-name>
 <param-value>
-/WEB-INF/spring-security.xml,
-/WEB-INF/dispatcher-servlet.xml
+/WEB-INF/dispatcher-servlet.xml,
+/WEB-INF/spring-security.xml
 </param-value>
 </context-param>
 

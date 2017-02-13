@@ -17,6 +17,8 @@ public class Order implements Serializable{
 	private Cart Cart;
 	private long totalAmount;
 	private String paymentMethod;
+	private CardDetail cardDetail;
+	
 	
 	public Order(){
 		this.orderID = "SHP_CRT_ORD" + UUID.randomUUID();
@@ -77,6 +79,22 @@ public class Order implements Serializable{
 	public void setPaymentMethod(String paymentMethod) {
 		this.paymentMethod = paymentMethod;
 	}
+
+	public CardDetail getCardDetail() {
+		return cardDetail;
+	}
+
+	public void setCardDetail(CardDetail cardDetail) {
+		this.cardDetail = cardDetail;
+	}
+
+
+	
+	
+
+
+
+
 	
 	
 	

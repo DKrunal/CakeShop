@@ -1,28 +1,12 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-<!Doctype Html>
-<html>
-<head>
 
-</head>
 <title>Cake Shop</title>
 
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <body>
 
 <%@ include file="Head&Foot/header.jsp"%>
-
-
-<c:if test="${isAdmin == true || isAdminClickedSuppliers == true || isAdminClickedCategories == true || isAdminClickedProducts == true}">
-							<ul class="nav navbar-nav collapse navbar-collapse">
-							<li class="dropdown">Manage<i class="fa fa-angle-down"></i></a>
-                                    <ul role="menu" class="sub-menu">
-                                       <li><a href="Supplier">Manage Suppliers</a></li>
-								<li><a href="Product">Manage Products</a></li>
-								<li><a href="Category">Manage Category</a></li>
-                                    </ul>
-                                </li> 
-                                </ul>
-							</c:if>
 <c:if test="${!empty isAdminClickedSuppliers}">
 <%@include file="Supplier.jsp" %>
 </c:if>
@@ -33,9 +17,18 @@
 <%@include file="Product.jsp" %>
 </c:if>
 <c:if test="${!empty isUserClickShop}">
-<%@include file="user/userProduct.jsp" %>
+<%@include file="userProduct.jsp" %>
 </c:if>
+<c:if test="${!empty isUserSelectProduct}">
+<%@include file="selectedProduct.jsp"%>
+</c:if>
+<c:if test="${!empty displayCart}">
+<%@include file="cart.jsp"%>
+</c:if>
+									
 <c:if test= "${empty isUserClickShop}">
+<c:if test="${empty isUserSelectProduct}">
+<c:if test="${empty displayCart}">
 <body style="padding:0px; margin:0px; background-color:#fff;font-family:'Open Sans',sans-serif,arial,helvetica,verdana">
 
     <!-- #region Jssor Slider Begin -->
@@ -207,6 +200,8 @@
 
 
 <%@ include file="infoslider.jsp"%>
+</c:if>
+</c:if>
 </c:if>
 <%@ include file="Head&Foot/footer.jsp"%>
 </body>

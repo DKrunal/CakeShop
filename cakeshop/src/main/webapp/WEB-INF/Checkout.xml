@@ -16,31 +16,34 @@ xsi:schemaLocation="http://www.springframework.org/schema/webflow  http://www.sp
 		<evaluate
 			expression="flowHandler.addShippingAddress(flowScope.order,shippingAddress)"></evaluate>
 		<transition on="success" to="viewBillingDetails" />
+		<transition on="error" to="err"/>
 	</action-state>
 
 	<view-state id="viewBillingDetails" view="billingAddress"
 		model="billingAddress">
 		<transition on="submitBillingAddress" to="billingDetails" />
-		<transition on="backToShippingAddress" to="checkout"></transition>
+		<transition on="error" to="err"/>
 	</view-state>
 
 	<action-state id="billingDetails">
 		<evaluate
 			expression="flowHandler.addBillingAddress(flowScope.order,billingAddress)"></evaluate>
-		<transition on="success" to="viewPaymentDetail" />
+		<transition on="success" to="orderDeliver" />
+		
 	</action-state>
 
-	<view-state id="viewPaymentDetail" view="cardDetail"
+<!-- 	<view-state id="viewCardDetail" view="cardDetail"
 		model="cardDetail">
 		<transition on="submitPaymentMethod" to="orderConfirm" />
 	</view-state>
 
-<!-- 	<action-state id="paymentDetails">
+ 	<action-state id="orderConfirm">
 		<evaluate
-			expression="flowHandler.addPaymentMethod(flowScope.order,cardDetail)"></evaluate>
-		<transition on="success" to="orderConfirm" />
-	</action-state> -->
-	<view-state id="orderConfirm" view="checkout/orderConfirmed">
+			expression="flowHandler.addCardDetail(flowScope.order,cardDetail)"></evaluate>
+		<transition on="success" to="orderDeliver" />
+	</action-state>  -->
+	
+	<view-state id="orderDeliver" view="orderConfirmed" model="orderConfirmed">
 		<transition on="finalHome" to="toHome" />
 	</view-state>
 

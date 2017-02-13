@@ -28,8 +28,8 @@
 					</c:when>
 
 					<c:otherwise>
-						<td><form:input path="product_id" pattern=".{5,20}" required="true"
-								title="id should contains 5 to 20 characters" /></td>
+						<td><form:input path="product_id" pattern=".{5,20}"
+								required="true" title="id should contains 5 to 20 characters" /></td>
 					</c:otherwise>
 				</c:choose>
 			<tr>
@@ -50,7 +50,12 @@
 					</form:label></td>
 				<td><form:input path="price" required="true" /></td>
 			</tr>
-
+			<tr>
+				<td><form:label path="stock">
+						<spring:message text="stock" />
+					</form:label></td>
+				<td><form:input path="stock" required="true" /></td>
+			</tr>
 			<tr>
 				<td><form:label path="type">
 						<spring:message text="type" />
@@ -102,6 +107,7 @@
 				<th width="200">Product Description</th>
 				<th width="120">Product Name</th>
 				<th width="80">Price</th>
+				<th width="80">stock</th>
 				<th width="80">Type</th>
 				<th width="80">Category</th>
 				<th width="80">Supplier</th>
@@ -114,6 +120,7 @@
 					<td>${product.description}</td>
 					<td>${product.name}</td>
 					<td>${product.price}</td>
+					<td>${product.stock}</td>
 					<td>${product.type}</td>
 					<td>${product.category.name}</td>
 					<td>${product.supplier.name}</td>

@@ -8,7 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1>HTTP Status 403- Access is denied</h1>
+<h1>HTTP Status 403- Access is denied ${errorMessage}</h1>
 <c:choose>
 <c:when test="${empty username}">
 <h2>you do not have permission to access this page</h2>
