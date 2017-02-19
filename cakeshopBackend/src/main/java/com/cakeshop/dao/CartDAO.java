@@ -17,4 +17,8 @@ public interface CartDAO {
 	  public List<Cart> userCartList(String username);
 
 	  public Cart getByIdCart(int id);
+	  
+	  public void deleteAllCartItem(String mail_id);
+
+	  
 }

@@ -12,7 +12,6 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.cakeshop.dao.ProductDAO;
-import com.cakeshop.model.Category;
 import com.cakeshop.model.Product;
 
 @Repository
@@ -22,6 +21,7 @@ public class ProductDAOImpl implements ProductDAO {
 	@Autowired
 	private SessionFactory sessionFactory;
 	
+	@SuppressWarnings("unchecked")
 	@Transactional
 	public List<Product> getProduct() {
 		log.debug("starting of method getProduct ");
@@ -96,6 +96,7 @@ public class ProductDAOImpl implements ProductDAO {
 
 	}
 	
+	@SuppressWarnings("unchecked")
 	@Transactional
 	public List<Product> getProductByCategoryName(String category_id) {
 		

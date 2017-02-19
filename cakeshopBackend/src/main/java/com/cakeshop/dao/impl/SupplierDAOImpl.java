@@ -12,7 +12,6 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.cakeshop.dao.SupplierDAO;
-import com.cakeshop.model.Category;
 import com.cakeshop.model.Supplier;
 
 @Repository
@@ -22,6 +21,7 @@ public class SupplierDAOImpl implements SupplierDAO {
 	@Autowired
 	private SessionFactory sessionFactory;
 	
+	@SuppressWarnings("unchecked")
 	@Transactional
 	public List<Supplier> getSuppliers() {
 		String hql = "from Supplier";

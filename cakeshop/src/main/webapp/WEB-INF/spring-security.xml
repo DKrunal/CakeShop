@@ -6,21 +6,20 @@ xsi:schemaLocation="http://www.springframework.org/schema/beans
 		http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
 		http://www.springframework.org/schema/security
 		http://www.springframework.org/schema/security/spring-security-4.0.xsd">
-<security:http auto-config="true">
+ <security:http auto-config="true">
 	<security:intercept-url pattern="/manage**" access="hasRole('ROLE_ADMIN')" />
-	<security:intercept-url pattern="/cart/**" access="hasRole('ROLE_USER')" />
+	<security:intercept-url pattern="/MyCart**" access="hasRole('ROLE_USER')" />
 		<security:intercept-url pattern="/Category**" access="hasRole('ROLE_ADMIN')" />
 		<security:intercept-url pattern="/Supplier**" access="hasRole('ROLE_ADMIN')" />
 		<security:intercept-url pattern="/Product**" access="hasRole('ROLE_ADMIN')" />
 		<security:intercept-url pattern="/MyProduct**" access="hasRole('ROLE_USER')" />
 		
-		<security:intercept-url pattern="/checkout**" access="hasRole('ROLE_USER')" />
-<security:form-login default-target-url="/" username-parameter="id" password-parameter="password" authentication-failure-url="/loginError"></security:form-login>
-<security:logout logout-url="/logOut"/>
+<security:intercept-url pattern="/checkout**" access="hasRole('ROLE_USER')" />
+<security:form-login login-page="/login" login-processing-url="/j_spring_security_check" default-target-url="/" username-parameter="id" password-parameter="password" authentication-failure-url="/loginError"></security:form-login>
+<security:logout logout-url="/logOut" />
 <security:csrf/>
 <security:access-denied-handler error-page="/accessDenied"/>
 </security:http>
-
  <security:authentication-manager>
   <security:authentication-provider>
     <security:jdbc-user-service 

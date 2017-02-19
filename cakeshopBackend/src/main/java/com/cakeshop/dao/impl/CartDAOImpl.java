@@ -46,7 +46,7 @@ public class CartDAOImpl implements CartDAO {
 		
 	}
 	
-	@SuppressWarnings({ "unchecked", "rawtypes" })
+	@SuppressWarnings({ "unchecked" })
 	@Transactional
 	public Cart getCart(String product_id) {
 		log.info("Get Cart by User ID "+product_id);
@@ -68,13 +68,12 @@ public class CartDAOImpl implements CartDAO {
 				.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY).list();
 		return list;
 	}
-	@SuppressWarnings("rawtypes")
+	@SuppressWarnings("unchecked")
 	@Transactional
 	public List<Cart> userCartList(String username) {
 		log.info("get Cart by User ID "+username);
 		String hql = "from Cart where mail_id=" + "'" + username + "'";
 		Query query = sessionfactory.getCurrentSession().createQuery(hql);
-		@SuppressWarnings("unchecked")
 		List<Cart> list = query.list();
 		if (list != null && !list.isEmpty()) 
 		{
@@ -82,7 +81,7 @@ public class CartDAOImpl implements CartDAO {
 		}
 		return null;
 	}
-	@SuppressWarnings({ "unchecked", "rawtypes" })
+	@SuppressWarnings({ "unchecked" })
 	@Transactional
 	public Cart getByIdCart(int id) {
 		log.info("Get Cart by ID "+id);
@@ -94,6 +93,15 @@ public class CartDAOImpl implements CartDAO {
 			return list.get(0);
 		}
 		return null;
+	}
+
+	@Override
+	public void deleteAllCartItem(String mail_id) {
+		log.info("delete cart" + mail_id );
+		Cart cart = new Cart();
+		cart.setMail_id(mail_id);
+		sessionfactory.getCurrentSession().delete(cart);
+		
 	}
 
 }

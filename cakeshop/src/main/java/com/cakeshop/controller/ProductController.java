@@ -1,5 +1,10 @@
 package com.cakeshop.controller;
 
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
+import javax.servlet.http.HttpServletRequest;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +23,7 @@ import com.cakeshop.dao.SupplierDAO;
 import com.cakeshop.model.Category;
 import com.cakeshop.model.Product;
 import com.cakeshop.model.Supplier;
+import com.cakeshop.model.User;
 import com.cakeshop.util.FileUtil;
 
 @Controller
@@ -25,7 +31,8 @@ public class ProductController {
 	private static Logger log = LoggerFactory.getLogger(CategoryController.class);
 	@Autowired
 	private Category category;
-	
+	@Autowired
+	private User user;
 	@Autowired
 	private Supplier supplier;
 	
@@ -40,10 +47,11 @@ public class ProductController {
 	@Autowired
 	private SupplierDAO supplierDAO;
 	
-	private String path ="resources/img/";
+	 Path path;
+	
 	@RequestMapping(value="/manage_product_add", method=RequestMethod.POST)
 	
-	public String addProduct(@ModelAttribute("product")Product product,@RequestParam("image")MultipartFile file,Model model){
+	public String addProduct(@ModelAttribute("product")Product product,@RequestParam("image")MultipartFile file,Model model,HttpServletRequest request){
 		Category category = categoryDAO.getCategoryByName(product.getCategory().getName());
 		
 		Supplier supplier = supplierDAO.getSupplierByName(product.getSupplier().getName());
@@ -67,7 +75,10 @@ public class ProductController {
         model.addAttribute("supplier", supplier);
         model.addAttribute("supplierList", supplierDAO.getSuppliers());
 		model.addAttribute("isAdminClickedProducts", "true");
-		FileUtil.upload(path, file, product.getProduct_id()+".jpg");
+
+		String rootDirectory=request.getSession().getServletContext().getRealPath("/");
+		path =Paths.get(rootDirectory + "\\WEB-INF\\resources\\images\\"+product.getProduct_id()+".jpg");
+		FileUtil.upload(path.toString(), file, product.getProduct_id()+".jpg");
 		return "/index";
 	}
 	
@@ -114,6 +125,8 @@ public class ProductController {
 	@RequestMapping(value = "/manage_products", method = RequestMethod.GET)
 	public String listProducts(Model model) {
 		log.debug(" Starting of the method listProducts");
+		model.addAttribute("user", user);
+
 		model.addAttribute("product", product);
 		
         model.addAttribute("productList", productDAO.getProduct());

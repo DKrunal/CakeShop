@@ -7,7 +7,11 @@ import javax.servlet.http.HttpSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -42,11 +46,70 @@ public class UserController {
 
 	@Autowired
 	private Supplier supplier;
-
+	
 	@Autowired
 	private HttpSession session;
 
-	@RequestMapping(value ="/validate", method = RequestMethod.POST)
+	@RequestMapping(value="/login")
+	public ModelAndView login(@RequestParam(value="error",required=false)String error,@RequestParam(value="logout",required=false) String logout)
+	{
+		log.debug("starting of login method ");
+		if(session.getAttribute("user_f_name") != null )
+		{
+			ModelAndView mv = new ModelAndView("/index");
+			log.debug("Valid Credentials");
+            user=userDAO.getUserById((String)session.getAttribute("user_f_name"));
+			session.setAttribute("loggedInUser", user.getFname());
+			session.setAttribute("loggedInUserID", user.getId());
+			session.setAttribute("user", user); 
+			
+
+			if (user.getRole().equals("ROLE_ADMIN")) {
+				log.debug("Logged in as Admin");
+				mv.addObject("isAdmin", "true");
+				session.setAttribute("isAdmin", "true");
+				session.setAttribute("supplier", supplier);
+				session.setAttribute("supplierList", supplierDAO.getSuppliers());
+
+				session.setAttribute("category", category);
+				session.setAttribute("categoryList", categoryDAO.getCategory());
+
+			} else {
+				log.debug("Logged in as User");
+				mv.addObject("isAdmin", "false");
+			}
+			return mv;
+		}
+	
+		else{
+			ModelAndView mv = new ModelAndView("LogIn");
+
+			if(error!=null)
+			{
+
+				log.info("Error");
+//				System.out.println("Error..");
+				log.debug("Invalid Credentials");
+				System.out.println("inValid Credential");
+				mv.addObject("invalidCredentials", "true");
+				mv.addObject("errorMessage", "Invalid Credentials");
+				mv.addObject("loginmsg","Invalid username or password...");
+			}
+		
+			if(logout!=null)
+			{
+				log.info("Logout Called");
+				
+//				System.out.println("logout called..");
+				mv.addObject("loginmsg","you have logged out...");
+			}
+			return mv;
+		}
+	}
+		
+	
+	
+/*	@RequestMapping(value ="/validate", method = RequestMethod.POST)
 	public ModelAndView validate(@RequestParam(value = "id") String id,
 			@RequestParam(value = "password") String password) {
 		log.debug("Starting of the method validate");
@@ -61,7 +124,7 @@ public class UserController {
 			session.setAttribute("loggedInUser", user.getFname());
 			session.setAttribute("loggedInUserID", user.getId());
 
-			session.setAttribute("user", user); //
+			session.setAttribute("user", user); 
 
 			if (user.getRole().equals("ROLE_ADMIN")) {
 				log.debug("Logged in as Admin");
@@ -87,8 +150,8 @@ public class UserController {
 		}
 		log.debug("Ending of the method validate");
 		return mv;
-	}
-	
+	}*/
+
 	@RequestMapping(value = "/signup",method = RequestMethod.POST)
 	public ModelAndView signup(@ModelAttribute User user) {
 		log.debug("Starting of the method registerUser");
@@ -106,26 +169,30 @@ public class UserController {
 	}
 	
 	@RequestMapping("/logOut")
-	public ModelAndView logout(HttpServletRequest request,HttpServletResponse response) {
+	public String logout(HttpServletRequest request,HttpServletResponse response,Model model) {
 		log.debug("Starting of the method logOut");
-		ModelAndView mv = new ModelAndView("/index");
-	    session.invalidate();	// session
-	    session =request.getSession(true);
-		session.setAttribute("category", category);
-		session.setAttribute("categoryList", categoryDAO.getCategory());
+		//ModelAndView mv = new ModelAndView("/index");
+	      session.invalidate();	// session
+	    
 
-		mv.addObject("logoutMessage", "You successfully logged out");
-		mv.addObject("loggedOut", "true");
+		/*mv.addObject("logoutMessage", "You successfully logged out");
+		mv.addObject("loggedOut", "true");*/
 		
-		/* Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		 Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		
 		    if (auth != null){    
 		        new SecurityContextLogoutHandler().logout(request, response, auth);
 		    }
-		  //  return "redirect:/login?logout";
-		    */
+		    session =request.getSession(true);
+			session.setAttribute("category", category);
+			session.setAttribute("categoryList", categoryDAO.getCategory());
+		    log.info("categoryList",categoryDAO.getCategory());
+		    model.addAttribute("loggedOut", "true");
 		    
-		log.debug("Ending of the method logout");
-		return mv;
+		    log.debug("Ending of the method logout");
+		    
+		  return "redirect:/index";
+		    
+		   
 	}
 }

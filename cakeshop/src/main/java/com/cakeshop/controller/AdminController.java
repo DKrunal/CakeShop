@@ -16,6 +16,7 @@ import com.cakeshop.dao.SupplierDAO;
 import com.cakeshop.model.Category;
 import com.cakeshop.model.Product;
 import com.cakeshop.model.Supplier;
+import com.cakeshop.model.User;
 
 
 @Controller
@@ -23,7 +24,8 @@ public class AdminController {
 	private static Logger log = LoggerFactory.getLogger(AdminController.class);
 	@Autowired
 	private Product product;
-
+@Autowired
+private User user;
 	@Autowired
 	private Supplier supplier;
 
@@ -52,6 +54,7 @@ public class AdminController {
 		String loggedInUser=(String)session.getAttribute("loggedInUser");
 		log.info("LoggedInUser Is: "+loggedInUser);
 		mv.addObject("isAdmin", "true");
+		mv.addObject("user", user);
 
 		mv.addObject("category", category);
 		mv.addObject("isAdminClickedCategories", "true");
@@ -71,6 +74,7 @@ public class AdminController {
 		mv.addObject("category", category);
 		mv.addObject("categoryList", categoryDAO.getCategory());
 		mv.addObject("supplier", supplier);
+		
 		mv.addObject("supplierList", supplierDAO.getSuppliers());
 		log.debug("Ending of the method products");
 		return mv;
@@ -82,6 +86,8 @@ public class AdminController {
 		ModelAndView mv = new ModelAndView("index");
 		mv.addObject("supplier", supplier);
 		mv.addObject("isAdmin", "true");
+		mv.addObject("user", user);
+
 		mv.addObject("isAdminClickedSuppliers", "true");
 		mv.addObject("supplierList", supplierDAO.getSuppliers());
 		log.debug("Ending of the method suppliers");

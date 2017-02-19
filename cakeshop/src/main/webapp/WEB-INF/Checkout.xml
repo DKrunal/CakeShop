@@ -28,25 +28,18 @@ xsi:schemaLocation="http://www.springframework.org/schema/webflow  http://www.sp
 	<action-state id="billingDetails">
 		<evaluate
 			expression="flowHandler.addBillingAddress(flowScope.order,billingAddress)"></evaluate>
-		<transition on="success" to="orderDeliver" />
+			
+		<transition on="success" to="orderDeliver" >
+		</transition>
 		
 	</action-state>
-
-<!-- 	<view-state id="viewCardDetail" view="cardDetail"
-		model="cardDetail">
-		<transition on="submitPaymentMethod" to="orderConfirm" />
-	</view-state>
-
- 	<action-state id="orderConfirm">
-		<evaluate
-			expression="flowHandler.addCardDetail(flowScope.order,cardDetail)"></evaluate>
-		<transition on="success" to="orderDeliver" />
-	</action-state>  -->
 	
 	<view-state id="orderDeliver" view="orderConfirmed" model="orderConfirmed">
 		<transition on="finalHome" to="toHome" />
 	</view-state>
-
+ 
+ <view-state id="toCartView" view="index" model="index"> 
+	</view-state>
 	<end-state id="toHome" view="externalRedirect:contextRelative:/index" />
 
 	<global-transitions>

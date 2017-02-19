@@ -13,7 +13,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.cakeshop.dao.CategoryDAO;
 import com.cakeshop.model.Category;
-import com.cakeshop.model.Supplier;
 
 
 @Repository
@@ -24,6 +23,7 @@ public class CategoryDAOImpl implements CategoryDAO {
 	@Autowired
 	private SessionFactory sessionFactory;
 	
+	@SuppressWarnings("unchecked")
 	@Transactional
 	public List<Category> getCategory() {
 		String hql = "from Category";

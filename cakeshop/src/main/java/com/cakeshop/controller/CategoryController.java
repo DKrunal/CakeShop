@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.cakeshop.dao.CategoryDAO;
 import com.cakeshop.model.Category;
+import com.cakeshop.model.User;
 
 @Controller
 public class CategoryController {
@@ -20,7 +21,8 @@ public class CategoryController {
 
 	@Autowired
 	private CategoryDAO categoryDAO;
-
+	@Autowired
+	private User user;
 	@Autowired
 	private Category category;
 	
@@ -38,6 +40,8 @@ public class CategoryController {
 		model.addAttribute("category", category);
 		model.addAttribute("categoryList", categoryDAO.getCategory());
 		model.addAttribute("isAdminClickedCategories", "true");
+		model.addAttribute("user", user);
+
 		log.debug(" Ending of the method addCategory");
 		return "/index";
 	}
@@ -76,6 +80,8 @@ public class CategoryController {
 		model.addAttribute("category", category);
 		model.addAttribute("categoryList", categoryDAO.getCategory());
 		model.addAttribute("isAdminClickedCategories", "true");
+		model.addAttribute("user", user);
+
 		log.debug(" End of the method listCategories");
 		return "/index";
 	}

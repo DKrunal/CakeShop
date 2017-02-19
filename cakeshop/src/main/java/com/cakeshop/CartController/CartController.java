@@ -67,14 +67,14 @@ public class CartController {
 	HttpSession session;
 	
 	@RequestMapping(value = "/MyCart", method = RequestMethod.GET)
-	public String myCart(Model model) 
+	public String myCart(Model model, Principal principal) 
 	{
 		log.debug("My Cart called.");
-log.info("loggedIn user"+SecurityContextHolder.getContext().getAuthentication().getName());
+log.info("loggedIn user"+principal.getName());
 		try 
 		{
-			//log.info("active user"+principal.getName());
-			String name = SecurityContextHolder.getContext().getAuthentication().getName();
+			log.info("active user"+principal.getName());
+			String name = principal.getName();
 			model.addAttribute("cart", new Cart());
 			model.addAttribute("cartList", this.cartDAO.userCartList(name));
 			model.addAttribute("category", new Category());

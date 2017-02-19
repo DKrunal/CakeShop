@@ -54,7 +54,7 @@
 							</c:choose>
 							<div class="btn-group cart">
 								<button type="submit" class="btn btn-success"
-									onclick="cart_add-${product.product_id}">Add to cart</button>
+									onclick="MyCart_add-${product.product_id}">Add to cart</button>
 							</div>
 							<div class="btn-group wishlist">
 								<button type="submit" class="btn btn-danger"

@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.cakeshop.dao.SupplierDAO;
 import com.cakeshop.model.Supplier;
+import com.cakeshop.model.User;
 
 @Controller
 public class SupplierController {
@@ -20,7 +21,8 @@ public class SupplierController {
 	
 	@Autowired
 	private SupplierDAO supplierDAO;
-	
+	@Autowired
+	private User user;
 	@Autowired
 	private Supplier supplier;
 	
@@ -38,6 +40,8 @@ public class SupplierController {
 		model.addAttribute("supplier", supplier);
 		model.addAttribute("supplierList", supplierDAO.getSuppliers());
 		model.addAttribute("isAdminClickedSuppliers", "true");
+		model.addAttribute("user", user);
+
 		log.debug(" Ending of the method addSupplier");
 		return "/index";
 	}
@@ -76,6 +80,8 @@ public class SupplierController {
 		model.addAttribute("supplier", supplier);
 		model.addAttribute("supplierList", supplierDAO.getSuppliers());
 		model.addAttribute("isAdminClickedSuppliers", "true");
+		model.addAttribute("user", user);
+
 		log.debug(" End of the method listSuppliers");
 		return "/index";
 	}

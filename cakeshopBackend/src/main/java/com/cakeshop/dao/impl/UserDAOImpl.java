@@ -26,7 +26,8 @@ public class UserDAOImpl implements UserDAO {
 	public UserDAOImpl(SessionFactory sessionFactory) {
 		this.sessionFactory = sessionFactory;
 	}
- @Transactional
+ @SuppressWarnings("unchecked")
+@Transactional
 	public List<User> getUsers() {
 		String hql = "from User";
 
