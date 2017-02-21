@@ -95,12 +95,15 @@ public class CartDAOImpl implements CartDAO {
 		return null;
 	}
 
-	@Override
+	@Transactional
 	public void deleteAllCartItem(String mail_id) {
-		log.info("delete cart" + mail_id );
-		Cart cart = new Cart();
-		cart.setMail_id(mail_id);
-		sessionfactory.getCurrentSession().delete(cart);
+		log.info("starting of delete cart" + mail_id );
+		
+		String hql = "delete from Cart where mail_id=:mailid";
+		Query query= sessionfactory.getCurrentSession().createQuery(hql);
+		query.setParameter("mailid", mail_id);
+		query.executeUpdate();
+		log.info("Ending of delete cart" + mail_id +""+hql);
 		
 	}
 

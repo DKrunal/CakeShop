@@ -23,7 +23,7 @@
 				<div class="container">
 					<div class="col-md-12">
 						<div class="product col-md-3 service-image-left">
-							<img id="item-display" src="1.jpg" alt=""></img>
+							<img id="item-display" src="<c:url value="/resources/images/${cart.product_id}.jpg"/>" alt="${product.product_id}"></img>
 						</div>
 						<div class="col-md-7">
 							<div class="product-title">
@@ -54,7 +54,7 @@
 							</c:choose>
 							<div class="btn-group cart">
 								<button type="submit" class="btn btn-success"
-									onclick="cart_add-${product.product_id}">Add to cart</button>
+									onclick="MyCart_add-${product.product_id}">Add to cart</button>
 							</div>
 							<div class="btn-group wishlist">
 								<button type="submit" class="btn btn-danger"

@@ -16,34 +16,30 @@ xsi:schemaLocation="http://www.springframework.org/schema/webflow  http://www.sp
 		<evaluate
 			expression="flowHandler.addShippingAddress(flowScope.order,shippingAddress)"></evaluate>
 		<transition on="success" to="viewBillingDetails" />
+		<transition on="error" to="err"/>
 	</action-state>
 
 	<view-state id="viewBillingDetails" view="billingAddress"
 		model="billingAddress">
 		<transition on="submitBillingAddress" to="billingDetails" />
+		<transition on="error" to="err"/>
 	</view-state>
 
 	<action-state id="billingDetails">
 		<evaluate
 			expression="flowHandler.addBillingAddress(flowScope.order,billingAddress)"></evaluate>
-		<transition on="success" to="viewCardDetail" />
+			
+		<transition on="success" to="orderDeliver" >
+		</transition>
+		
 	</action-state>
-
-	<view-state id="viewCardDetail" view="cardDetail"
-		model="cardDetail">
-		<transition on="submitPaymentMethod" to="orderConfirm" />
-	</view-state>
-
- 	<action-state id="orderConfirm">
-		<evaluate
-			expression="flowHandler.addCardDetail(flowScope.order,cardDetail)"></evaluate>
-		<transition on="success" to="paymentDetail" />
-	</action-state> 
 	
-	<view-state id="paymentDetail" view="orderConfirmed" model="orderConfirmed">
+	<view-state id="orderDeliver" view="orderConfirmed" model="orderConfirmed">
 		<transition on="finalHome" to="toHome" />
 	</view-state>
-
+ 
+ <view-state id="toCartView" view="index" model="index"> 
+	</view-state>
 	<end-state id="toHome" view="externalRedirect:contextRelative:/index" />
 
 	<global-transitions>

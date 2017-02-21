@@ -23,7 +23,7 @@
 				<div class="container">
 					<div class="col-md-12">
 						<div class="product col-md-3 service-image-left">
-							<img id="item-display" src="1.jpg" alt=""></img>
+							<img id="item-display" src="<c:url value="resources/img/${product.product_id}.jpg"/>" alt="${product.product_id}"></img>
 						</div>
 						<div class="col-md-7">
 							<div class="product-title">
@@ -44,21 +44,18 @@
 										Stock</button>
 								</c:when>
 								<c:otherwise>
-									<a class="btn btn-success btn-block"
-										href="<c:url value='MyCart_add-${product.product_id}' />">Add
-										to Cart</a>
-									<a class="btn btn-warning btn-block"
-										href="<c:url value='buy_now-${product.product_id}' />">Buy
-										Now</a>
+								
 								</c:otherwise>
 							</c:choose>
 							<div class="btn-group cart">
-								<button type="submit" class="btn btn-success"
-									onclick="MyCart_add-${product.product_id}">Add to cart</button>
+									<a class="btn btn-success btn-block"
+										href="<c:url value='MyCart_add-${product.product_id}' />">Add
+										to Cart</a>
 							</div>
 							<div class="btn-group wishlist">
-								<button type="submit" class="btn btn-danger"
-									onclick="buy_now-${product.product_id}">Buy Now</button>
+								<a class="btn btn-warning btn-block"
+										href="<c:url value='buy_now-${product.product_id}' />">Buy
+										Now</a>
 							</div>
 						</div>
 					</div>

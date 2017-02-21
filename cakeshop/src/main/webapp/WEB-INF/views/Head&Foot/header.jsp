@@ -13,6 +13,8 @@
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <link rel="stylesheet" href="resources/css/style.css">
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec" %>
+
 </head>
 <body>
 	<header class="main_menu_sec navbar navbar-inverse ">
@@ -50,27 +52,32 @@
 											
 											<li><a href="#">News</a></li>
 <%-- 											<c:if test="${isAdmin == false }"> --%>	
-					<c:if test="${user.role=='ROLE_USER'}">
-											<li><a href="MyCart">Cart(${cartSize})</a></li>
+						<sec:authorize access="hasRole('ROLE_USER')">
+
+<%-- 					<c:if test="${user.role == 'ROLE_USER'}">
+ --%>											<li><a href="MyCart">Cart(${cartSize})</a></li>
 												<li><a href="#">Shop </a>
 													<ul id="selectedCategory">
 														<c:forEach items="${categoryList}" var="category">
 															<li><a href="userShop/${category.name}">${category.name}</a></li>
 														</c:forEach>
 													</ul></li>
-											</c:if>
-						<%-- 	${(User)pageContext.request.userPrincipal}
-							    ${pageContext.request.userPrincipal}          --%>	
+<%-- 											</c:if>
+ --%>											</sec:authorize>
+						<%-- 	${(User)pageContext.request.userPrincipal} 
+							    ${pageContext.request.userPrincipal}  --%>	       
+						<sec:authorize access="hasRole('ROLE_ADMIN')">
 											
-					<c:if test="${user.role=='ROLE_ADMIN'}">
+<%-- 					<c:if test="${user.role=='ROLE_ADMIN'}">
+ --%>					
 												<li><a href="#">Manage</a>
 													<ul>
 														<li><a href="Supplier">Manage Suppliers</a></li>
 														<li><a href="Product">Manage Products</a></li>
 														<li><a href="Category">Manage Category</a></li>
 													</ul></li>
-											</c:if>
-
+<%-- 											</c:if>
+ --%></sec:authorize>
 											<li><a href="logOut">LogOut</a></li>
 											<%-- </c:if> --%>
 											<c:url value="/logOut" var=" logoutUrl" />

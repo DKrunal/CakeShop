@@ -16,7 +16,7 @@ public class FileUtil {
 			if(file.getSize()>0){
 				try {
 					inputStream = file.getInputStream();
-					outputStream = new FileOutputStream(path+fileName);
+					outputStream = new FileOutputStream(path+"//"+fileName);
 					int readBytes = 0;
 					byte[] buffer = new byte[1024];
 					while((readBytes = inputStream.read(buffer, 0, 1024)) != -1){

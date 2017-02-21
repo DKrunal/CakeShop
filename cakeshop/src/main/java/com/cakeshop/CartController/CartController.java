@@ -10,7 +10,6 @@ import javax.servlet.http.HttpSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -84,6 +83,7 @@ log.info("loggedIn user"+principal.getName());
 			int i;
 			int sum = 0;
 			int n = cartDAO.userCartList(name).size();
+			
 			log.info("Size of cart "+n);
 			for (i = 0; i < n; i++) 
 			{
@@ -95,8 +95,9 @@ log.info("loggedIn user"+principal.getName());
 		
 		catch (Exception ex) 
 		{
+			ex.printStackTrace();
 			log.info("Error in cart"+ex.getMessage());
-			model.addAttribute("errorMsg", "Access is forbidden... You do not have rights to access this page.");
+			model.addAttribute("errorMessage", "Your Cart is Empty Please Add The Products");
 			return "error";
 		}
 		return "index";
@@ -153,6 +154,9 @@ log.info("loggedIn user"+principal.getName());
 	public String buyNow(@PathVariable("id") String id, HttpServletRequest request, Principal principal,Model model, HttpSession session) 
 	{
 		log.info("Cart add function called.");
+		int stock = product.getStock() - 1;
+		product.setStock(stock);
+		productDAO.save(product);
 		try 
 		{
 
@@ -167,9 +171,7 @@ log.info("loggedIn user"+principal.getName());
 
 			cartDAO.addCart(cart);
 			
-			int stock = product.getStock()-1;
-			product.setStock(stock);
-			productDAO.save(product);
+			
 		
 			int n=0;
 			try {
@@ -279,5 +281,13 @@ log.info("loggedIn user"+principal.getName());
 		}
 		return mv;
 	}
+	 @RequestMapping("/backToHome")
+	 public String backToHome(Principal principal){
+	 	 log.debug("Starting of the method backToHome"+principal.getName());
+	 	 
+	 	 cartDAO.deleteAllCartItem(principal.getName());
+	 	
+	 		return "redirect:/";
+	 	}
 	
 }

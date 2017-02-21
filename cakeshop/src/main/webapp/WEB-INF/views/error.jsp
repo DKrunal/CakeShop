@@ -13,11 +13,12 @@
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
+<%@ include file="Head&Foot/header.jsp"%>
 <br>
 <br>
 <br>
 <div class="alert alert-danger">
-<strong>THE REQUESTED SERVER IS DOWN.PLEASE CONTACT ADMINISTRATOR </strong>
+<strong>PLEASE CONTACT ADMINISTRATOR </strong>
 </div>
 <div class="alert alert-info">${message} ${errorMessage}</div>
 </body>

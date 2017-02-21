@@ -20,7 +20,7 @@
     	<div class="col-xs-12 col-sm-6 col-md-3">
             <div class="col-item">
                 <div class="post-img-content">
-                    <img src="resources/img/" class="img-responsive" />
+                    <img src="/resources/images/${cart.product_id}.jpg" alt="${product.product_id}" class="img-responsive" />
                     <span class="post-title">
                         <b>${category.name}</b><br>
                     </span>

@@ -20,7 +20,7 @@
     	<div class="col-xs-12 col-sm-6 col-md-3">
             <div class="col-item">
                 <div class="post-img-content">
-                    <img src="resources/img/" class="img-responsive" />
+                    <img src="resources/img/${product.product_id}.jpg" alt="${product.product_id}" class="img-responsive" />
                     <span class="post-title">
                         <b>${category.name}</b><br>
                     </span>
@@ -41,7 +41,7 @@
                     </div>
                     <div class="separator clear-left">
                         <p class="btn-add">
-                            <i class="fa fa-shopping-cart"></i><a href="cart_add-${product.product_id}" class="hidden-sm">Add to cart</a></p>
+                            <i class="fa fa-shopping-cart"></i><a href="MyCart_add-${product.product_id}" class="hidden-sm">Add to cart</a></p>
                         <p class="btn-details">
                             <i class="fa fa-list"></i><a href="selectedProduct/${product.product_id}" class="hidden-sm">More details</a></p>
                     </div>

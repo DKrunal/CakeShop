@@ -18,7 +18,6 @@
                     <tr>
                         <th>Product</th>
                         <th>Quantity</th>
-                        <th class="text-center">Price</th>
                         <th class="text-center">Total</th>
                         <th> </th>
                     </tr>
@@ -28,7 +27,7 @@
                     <tr>
                         <td class="col-sm-8 col-md-6">
                         <div class="media">
-                            <a class="thumbnail pull-left" href="#"> <img class="media-object" src="<c:url value="/resources/images/${cart.product_id}.jpg"/>" style="width: 72px; height: 72px;"> </a>
+                            <a class="thumbnail pull-left" href="#"> <img class="media-object" src="<c:url value="resources/img/${cart.product_id}.jpg"/>" style="width: 72px; height: 72px;"> </a>
                             <div class="media-body">
                                 <h4 class="media-heading"><a href="#">${cart.product_name}</a></h4>
                                 <h5 class="media-heading"> by <a href="#">${category.name}</a></h5>
@@ -54,22 +53,20 @@
                         <td>   </td>
                         <td>   </td>
                         <td><h5>Subtotal<br>Estimated shipping</h5><h3>Total</h3></td>
-                        <td class="text-right"><h5><strong>$24.59<br>$6.94</strong></h5><h3>&#8377. ${sum}/-</h3></td>
+                       
                     </tr>
                     <tr>
                         <td>   </td>
                         <td>   </td>
                         <td>   </td>
                         <td>
-                        <button type="button" class="btn btn-default">
+                        <a href="index" type="button" class="btn btn-warning btn-block">
                             <span class="glyphicon glyphicon-shopping-cart"></span> Continue Shopping
-                        </button></td>
+                        </a></td>
                         <td>
                         <a href="PurchaseNow" type="button" class="btn btn-success btn-block">
 						<span class="glyphicon glyphicon glyphicon-arrow-right"></span> CHECKOUT </a>
-                        <button type="submit" class="btn btn-success" >
-                            Checkout <span class="glyphicon glyphicon-play"></span>
-                        </button></td>
+                       </td>
                     </tr>
                 </tfoot>
             </table>

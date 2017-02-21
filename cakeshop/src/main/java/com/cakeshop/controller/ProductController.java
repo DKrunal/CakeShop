@@ -1,5 +1,6 @@
 package com.cakeshop.controller;
 
+import java.io.File;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
@@ -77,8 +78,27 @@ public class ProductController {
 		model.addAttribute("isAdminClickedProducts", "true");
 
 		String rootDirectory=request.getSession().getServletContext().getRealPath("/");
-		path =Paths.get(rootDirectory + "\\WEB-INF\\resources\\images\\"+product.getProduct_id()+".jpg");
-		FileUtil.upload(path.toString(), file, product.getProduct_id()+".jpg");
+		//path =Paths.get(rootDirectory + "\\WEB-INF\\resources\\img\\"+product.getProduct_id()+".jpg");
+		path =Paths.get(rootDirectory + "\\WEB-INF\\resources\\img\\");
+
+		log.debug("path of img"+path+"multipart file path  "+file);
+		log.debug("product id here" +product.getProduct_id());
+		if(file!=null && !file.isEmpty())
+		{
+			log.info("upload method calling.... "+path.toString());
+			FileUtil.upload(path.toString(), file, product.getProduct_id()+".jpg");
+
+		/*	try{
+				file.transferTo(new File(path.toString()));
+				log.info("image uploaded");
+//				System.out.println("image uploaded....");
+			}
+		catch(Exception e)
+		{
+//		e.printStackTrace();
+		throw new RuntimeException("image saving failed",e);
+		}*/
+		}
 		return "/index";
 	}
 	

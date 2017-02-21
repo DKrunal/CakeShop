@@ -55,7 +55,7 @@ http://www.springframework.org/schema/webflow-config/spring-webflow-config-2.4.x
 		<property name="maxUploadSize" value="50000000" />
 
 	</bean>
-	<mvc:resources mapping="/resources/**" location="/resources/" />
+	<mvc:resources mapping="/resources/**" location="WEB-INF/resources/" />
 
 	<mvc:annotation-driven />
 	<mvc:default-servlet-handler />
