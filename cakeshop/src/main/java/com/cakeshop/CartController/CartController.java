@@ -66,7 +66,7 @@ public class CartController {
 	HttpSession session;
 	
 	@RequestMapping(value = "/MyCart", method = RequestMethod.GET)
-	public String myCart(Model model, Principal principal) 
+	public String myCart(Model model, Principal principal, HttpSession session) 
 	{
 		log.debug("My Cart called.");
 log.info("loggedIn user"+principal.getName());
@@ -90,6 +90,8 @@ log.info("loggedIn user"+principal.getName());
 				sum = sum + cartDAO.userCartList(name).get(i).getPrice();
 			}
 			log.info("Sum of Cart "+sum);
+			session.setAttribute("cartSize",n);
+			log.info("cartsize"+n);
 			model.addAttribute("sum", sum);
 		} 
 		
@@ -154,9 +156,6 @@ log.info("loggedIn user"+principal.getName());
 	public String buyNow(@PathVariable("id") String id, HttpServletRequest request, Principal principal,Model model, HttpSession session) 
 	{
 		log.info("Cart add function called.");
-		int stock = product.getStock() - 1;
-		product.setStock(stock);
-		productDAO.save(product);
 		try 
 		{
 
@@ -171,7 +170,9 @@ log.info("loggedIn user"+principal.getName());
 
 			cartDAO.addCart(cart);
 			
-			
+			int stock = product.getStock() - 1;
+			product.setStock(stock);
+			productDAO.saveOrUpdate(product);
 		
 			int n=0;
 			try {
@@ -181,6 +182,8 @@ log.info("loggedIn user"+principal.getName());
 				log.info("Error");
 			}
 			session.setAttribute("cartSize",n);
+			
+			log.info("cartsize"+n);
 		}
 		catch (Exception e) 
 		{

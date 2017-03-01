@@ -7,6 +7,7 @@
 <body>
 
 <%@ include file="Head&Foot/header.jsp"%>
+
 <c:if test="${!empty isAdminClickedSuppliers}">
 <%@include file="Supplier.jsp" %>
 </c:if>
@@ -25,18 +26,20 @@
 <c:if test="${!empty displayCart}">
 <%@include file="cart.jsp"%>
 </c:if>
-									
+<c:if test="${!empty invalidCredentials}">
+<%@include file="loginError.jsp"%>
+</c:if>								
 <c:if test= "${empty isUserClickShop}">
 <c:if test="${empty isUserSelectProduct}">
 <c:if test="${empty displayCart}">
+<c:if test="${empty isAdminClickedProducts }">
+<c:if test="${empty isAdminClickedSuppliers }">
+<c:if test="${empty isAdminClickedCategories}">
 <body style="padding:0px; margin:0px; background-color:#fff;font-family:'Open Sans',sans-serif,arial,helvetica,verdana">
 
-    <!-- #region Jssor Slider Begin -->
-    <!-- Generator: Jssor Slider Maker -->
-    <!-- Source: http://www.jssor.com -->
-    <!-- This code works without jquery library. -->
     <script src="resources/js/jssor.slider-22.0.15.min.js" type="text/javascript" data-library="jssor.slider" data-version="22.0.15"></script>
     <script type="text/javascript">
+
         jssor_1_slider_init = function() {
 
             var jssor_1_SlideshowTransitions = [
@@ -144,34 +147,34 @@
         </div>
         <div data-u="slides" style="cursor: default; position: relative; top: 0px; left: 0px; width: 1200px; height: 550px; overflow: hidden;">
             <div data-p="144.50">
-                <img data-u="image" src="resources/img/01.jpg" />
+                <img data-u="image" src="resources/img/1.jpg" />
               
             </div>
             <div data-p="144.50" style="display:none;">
-                <img data-u="image" src="resources/img/02.jpg" />
+                <img data-u="image" src="resources/img/2.jpg" />
               
             </div>
             <div data-p="144.50" style="display:none;">
-                <img data-u="image" src="resources/img/03.jpg" />
+                <img data-u="image" src="resources/img/3.jpg" />
                 
             </div>
             <div data-p="144.50" style="display:none;">
-                <img data-u="image" src="resources/img/04.jpg" />
+                <img data-u="image" src="resources/img/4.jpg" />
             </div>
             <div data-p="144.50" style="display:none;">
-                <img data-u="image" src="resources/img/05.jpg" />
+                <img data-u="image" src="resources/img/5.jpg" />
             </div>
             <div data-p="144.50" style="display:none;">
-                <img data-u="image" src="resources/img/06.jpg" />
+                <img data-u="image" src="resources/img/6.jpg" />
             </div>
             <div data-p="144.50" style="display:none;">
-                <img data-u="image" src="resources/img/07.jpg" />
+                <img data-u="image" src="resources/img/7.jpg" />
             </div>
             <div data-p="144.50" style="display:none;">
-                <img data-u="image" src="resources/img/08.jpg" />
+                <img data-u="image" src="resources/img/8.jpg" />
             </div>
             <div data-p="144.50" style="display:none;">
-                <img data-u="image" src="resources/img/09.jpg" />
+                <img data-u="image" src="resources/img/9.jpg" />
             </div>
             <div data-p="144.50" style="display:none;">
                 <img data-u="image" src="resources/img/10.jpg" />
@@ -198,8 +201,10 @@
 <br>
 <br>
 
-
 <%@ include file="infoslider.jsp"%>
+</c:if>
+</c:if>
+</c:if>
 </c:if>
 </c:if>
 </c:if>

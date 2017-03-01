@@ -26,9 +26,11 @@
 
 <div class="container">
 <div class="col-xs-12">
-<h4><marquee behavior="alternate" height=50px >!!ORDER NOW!! &nbsp; YOUR FAVORITE CAKE IS READY &nbsp;  !!ORDER NOW!!</marquee></h4><br>
+
+<h4><marquee behavior="alternate" height=50px  style=" padding-top: 20px;  border: medium; color: black;
+ background-color: orange;" >!!ORDER NOW!! &nbsp; YOUR FAVORITE CAKE IS READY &nbsp;  !!ORDER NOW!!</marquee></h4><br>
    <br>
-        
+     
     <div class="carousel slide" id="myCarousel">
         <div class="carousel-inner">
             <div class="item active">
@@ -36,11 +38,11 @@
                         <li class="col-sm-3">
     						<div class="fff">
 								<div class="thumbnail">
-									<a href="#"><img src="http://placehold.it/360x240" alt=""></a>
+									<a href="#"><img src="resources/img/i1.jpg" alt=""></a>
 								</div>
 								<div class="caption">
-									<h4>Strawberry Cakes</h4>
-									<p>New Delicious</p>
+									<h4>Black Forest</h4>
+									<p> Known for its dense & evergreen forests</p>
 									<a class="btn btn-mini" href="category">»More Info</a>
 								</div>
                             </div>
@@ -48,11 +50,11 @@
                         <li class="col-sm-3">
 							<div class="fff">
 								<div class="thumbnail">
-									<a href="#"><img src="http://placehold.it/360x240" alt=""></a>
+									<a href="#"><img src="resources/img/i2.jpg" alt=""></a>
 								</div>
 								<div class="caption">
-									<h4>Praesent commodo</h4>
-									<p>Nullam Condimentum Nibh Etiam Sem</p>
+									<h4>Strawberry Cake </h4>
+									<p>cake that uses strawberry as a primary ingredient. </p>
 									<a class="btn btn-mini" href="#">» Read More</a>
 								</div>
                             </div>
@@ -60,11 +62,11 @@
                         <li class="col-sm-3">
 							<div class="fff">
 								<div class="thumbnail">
-									<a href="#"><img src="http://placehold.it/360x240" alt=""></a>
+									<a href="#"><img src="resources/img/i3.jpg" alt=""></a>
 								</div>
 								<div class="caption">
-									<h4>Praesent commodo</h4>
-									<p>Nullam Condimentum Nibh Etiam Sem</p>
+									<h4>chocolate cake</h4>
+									<p> it is cake flavored with melted chocolate</p>
 									<a class="btn btn-mini" href="#">» Read More</a>
 								</div>
                             </div>
@@ -72,11 +74,11 @@
                         <li class="col-sm-3">
 							<div class="fff">
 								<div class="thumbnail">
-									<a href="#"><img src="http://placehold.it/360x240" alt=""></a>
+									<a href="#"><img src="resources/img/i4.jpg" alt=""></a>
 								</div>
 								<div class="caption">
-									<h4>Praesent commodo</h4>
-									<p>Nullam Condimentum Nibh Etiam Sem</p>
+									<h4>pineapple cake</h4>
+									<p>cake contains butter, flour, egg , and pineapple jam.</p>
 									<a class="btn btn-mini" href="#">» Read More</a>
 								</div>
                             </div>
@@ -88,11 +90,11 @@
                         <li class="col-sm-3">
 							<div class="fff">
 								<div class="thumbnail">
-									<a href="#"><img src="http://placehold.it/360x240" alt=""></a>
+									<a href="#"><img src="resources/img/i5.jpg" alt=""></a>
 								</div>
 								<div class="caption">
-									<h4>Praesent commodo</h4>
-									<p>Nullam Condimentum Nibh Etiam Sem</p>
+									<h4>decorating cake</h4>
+									<p>it is one of the sugar arts uses icing & frosting</p>
 									<a class="btn btn-mini" href="#">» Read More</a>
 								</div>
                             </div>
@@ -100,11 +102,11 @@
                         <li class="col-sm-3">
 							<div class="fff">
 								<div class="thumbnail">
-									<a href="#"><img src="http://placehold.it/360x240" alt=""></a>
+									<a href="#"><img src="resources/img/i6.jpg" alt=""></a>
 								</div>
 								<div class="caption">
-									<h4>Praesent commodo</h4>
-									<p>Nullam Condimentum Nibh Etiam Sem</p>
+									<h4>Vanilla Cake</h4>
+									<p>vanilla cake has a delicate texture and delectable crumb</p>
 									<a class="btn btn-mini" href="#">» Read More</a>
 								</div>
                             </div>
@@ -112,11 +114,11 @@
                         <li class="col-sm-3">
 							<div class="fff">
 								<div class="thumbnail">
-									<a href="#"><img src="http://placehold.it/360x240" alt=""></a>
+									<a href="#"><img src="resources/img/i7.jpg" alt=""></a>
 								</div>
 								<div class="caption">
-									<h4>Praesent commodo</h4>
-									<p>Nullam Condimentum Nibh Etiam Sem</p>
+									<h4>butter cake</h4>
+									<p>cake in which one of the main ingredients is butter</p>
 									<a class="btn btn-mini" href="#">» Read More</a>
 								</div>
                             </div>
@@ -124,69 +126,18 @@
                         <li class="col-sm-3">
 							<div class="fff">
 								<div class="thumbnail">
-									<a href="#"><img src="http://placehold.it/360x240" alt=""></a>
+									<a href="#"><img src="resources/img/i8.jpg" alt=""></a>
 								</div>
 								<div class="caption">
-									<h4>Praesent commodo</h4>
-									<p>Nullam Condimentum Nibh Etiam Sem</p>
+									<h4>sandwich cake </h4>
+									<p>sandwich cake has multilayer of flavored</p>
 									<a class="btn btn-mini" href="#">» Read More</a>
 								</div>
                             </div>
                         </li>
                     </ul>
               </div><!-- /Slide2 --> 
-            <div class="item">
-                    <ul class="thumbnails">
-                        <li class="col-sm-3">	
-							<div class="fff">
-								<div class="thumbnail">
-									<a href="#"><img src="http://placehold.it/360x240" alt=""></a>
-								</div>
-								<div class="caption">
-									<h4>Praesent commodo</h4>
-									<p>Nullam Condimentum Nibh Etiam Sem</p>
-									<a class="btn btn-mini" href="#">» Read More</a>
-								</div>
-                            </div>
-                        </li>
-                        <li class="col-sm-3">
-							<div class="fff">
-								<div class="thumbnail">
-									<a href="#"><img src="http://placehold.it/360x240" alt=""></a>
-								</div>
-								<div class="caption">
-									<h4>Praesent commodo</h4>
-									<p>Nullam Condimentum Nibh Etiam Sem</p>
-									<a class="btn btn-mini" href="#">» Read More</a>
-								</div>
-                            </div>
-                        </li>
-                        <li class="col-sm-3">
-							<div class="fff">
-								<div class="thumbnail">
-									<a href="#"><img src="http://placehold.it/360x240" alt=""></a>
-								</div>
-								<div class="caption">
-									<h4>Praesent commodo</h4>
-									<p>Nullam Condimentum Nibh Etiam Sem</p>
-									<a class="btn btn-mini" href="#">» Read More</a>
-								</div>
-                            </div>
-                        </li>
-                        <li class="col-sm-3">
-							<div class="fff">
-								<div class="thumbnail">
-									<a href="#"><img src="http://placehold.it/360x240" alt=""></a>
-								</div>
-								<div class="caption">
-									<h4>Praesent commodo</h4>
-									<p>Nullam Condimentum Nibh Etiam Sem</p>
-									<a class="btn btn-mini" href="#">» Read More</a>
-								</div>
-                            </div>
-                        </li>
-                    </ul>
-              </div><!-- /Slide3 --> 
+           
         </div>
         
        

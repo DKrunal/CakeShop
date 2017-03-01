@@ -16,7 +16,7 @@
 	 <c:url var="loginUrl" value="/j_spring_security_check" />
 		<form  action="${loginUrl}" method="post" >
 			<h1>Login</h1>
-			  
+			 
 			<div>
 				<input type="text" placeholder="Username" required id="id" name="id" class="form-control" required/>
 				

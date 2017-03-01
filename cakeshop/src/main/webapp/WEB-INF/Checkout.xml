@@ -44,7 +44,6 @@ xsi:schemaLocation="http://www.springframework.org/schema/webflow  http://www.sp
 
 	<global-transitions>
 		<transition on="cancel" to="toCartView" />
-		<!-- <transition on="finalHome" to="toHome" /> -->
 	</global-transitions>
 
 </flow>	

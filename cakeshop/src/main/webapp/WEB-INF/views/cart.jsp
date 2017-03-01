@@ -52,7 +52,7 @@
                         <td>   </td>
                         <td>   </td>
                         <td>   </td>
-                        <td><h5>Subtotal<br>Estimated shipping</h5><h3>Total</h3></td>
+                        <td><h3>Total &#8377.${sum} </h3></td>
                        
                     </tr>
                     <tr>

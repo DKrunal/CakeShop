@@ -9,6 +9,7 @@ xsi:schemaLocation="http://www.springframework.org/schema/beans
  <security:http auto-config="true">
 	<security:intercept-url pattern="/manage**" access="hasRole('ROLE_ADMIN')" />
 	<security:intercept-url pattern="/MyCart**" access="hasRole('ROLE_USER')" />
+	<security:intercept-url pattern="/buy_now**" access="hasRole('ROLE_USER')" />
 		<security:intercept-url pattern="/Category**" access="hasRole('ROLE_ADMIN')" />
 		<security:intercept-url pattern="/Supplier**" access="hasRole('ROLE_ADMIN')" />
 		<security:intercept-url pattern="/Product**" access="hasRole('ROLE_ADMIN')" />

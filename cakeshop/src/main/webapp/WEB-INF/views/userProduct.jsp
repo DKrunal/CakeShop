@@ -14,9 +14,10 @@
 </head>
 <body>
 	<c:if test="${!empty productList}">
-	<c:forEach items="${productList}" var="product">
+	
 <div class="container" style="margin-top:50px;">
 	<div class="row">
+	<c:forEach items="${productList}" var="product">
     	<div class="col-xs-12 col-sm-6 col-md-3">
             <div class="col-item">
                 <div class="post-img-content">
@@ -50,9 +51,10 @@
                 </div>
             </div>
         </div>
+         </c:forEach>
         </div>
         </div>
-        </c:forEach>
+       
         </c:if>
 </body>
 </html>

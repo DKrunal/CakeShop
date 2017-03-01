@@ -90,7 +90,7 @@ public class UserController {
 				log.info("Error");
 //				System.out.println("Error..");
 				log.debug("Invalid Credentials");
-				System.out.println("inValid Credential");
+//				System.out.println("inValid Credential");
 				mv.addObject("invalidCredentials", "true");
 				mv.addObject("errorMessage", "Invalid Credentials");
 				mv.addObject("loginmsg","Invalid username or password...");

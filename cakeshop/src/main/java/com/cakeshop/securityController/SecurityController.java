@@ -61,6 +61,7 @@ public class SecurityController {
 	public String loginError(Model model){
 	log.debug("Starting Of the method loginError");
 	model.addAttribute("errorMessage", "loginError");
+	model.addAttribute("invalidCredentials", "true");
 	log.debug("Ending Of the method loginError");
 		return "index";
 		

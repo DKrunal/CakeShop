@@ -124,6 +124,14 @@ public ModelAndView signup(){
 	return mv;
 }
 
+@RequestMapping("/cancelEvent")
+public ModelAndView cancelEvent(){
+	log.debug("Starting of the method cancelEvent");
+	ModelAndView mv = new ModelAndView("/index");
+	mv.addObject("user", user);
+	log.debug("Ending of the method cancelEvent");
+	return mv;
+}
 
  @RequestMapping("/index")
 public String index(@ModelAttribute("selectedProduct") final Product selectedProduct, final Model model){

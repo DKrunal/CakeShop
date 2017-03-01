@@ -5,6 +5,14 @@
 
 <html>
 <head>
+<style>
+table, th, td {
+    padding: 2px 2px 2px 2px;
+}
+body {
+background-color: ECF4FF;
+}
+</style>
 <title>Product Page</title>
 
 </head>
@@ -99,9 +107,9 @@
 
 
 
-	<h3>Product List</h3>
+	<h3><center>Product List</center></h3>
 	<c:if test="${!empty productList}">
-		<table class="tg">
+		<table class="tg" border="2" align="center">
 			<tr>
 				<th width="80">Product ID</th>
 				<th width="200">Product Description</th>

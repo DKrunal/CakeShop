@@ -7,14 +7,20 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<title>checkout</title>
 </head>
 <body>
-	<div class="container-fluid">
 		<div class="content">
 			<div class="panel panel-primary">
 				<div class="panel-heading">Shipping Address</div>
 				<div class="panel-body">
+				<div class="col-md-4 col-md-offset-4">
 					<form:form class="form-horizontal" commandName="shippingAddress">
 						<div class="form-group">
 							<label for="" class="control-label col-sm-2">Line 1</label>
@@ -61,13 +67,17 @@
 						<div class="col-md-offset-3">
 							<input type="submit" name="_eventId_submitShippingAddress"
 								class="btn btn-md btn-success" value="Save">
-							<button type="cancel" name="_eventId_cancel"
-								class="btn btn-md btn-danger" value="Cancel">cancel</button>
+								
+							<!-- <button type="cancel" name="_eventId_cancel"
+								class="btn btn-md btn-danger" value="Cancel">cancel</button> -->
+								
+								 <a href="cancelEvent" type="button" name="_eventId_cancel" class="btn btn-md btn-danger">
+					 cancel </a>
 						</div>
 					</form:form>
+					</div>
 				</div>
 			</div>
 		</div>
-	</div>
 </body>
 </html>

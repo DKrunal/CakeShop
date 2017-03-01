@@ -4,6 +4,14 @@
 <link rel="stylesheet" href="<c:url value="/resources/admin.css" />">
 <html>
 <head>
+<style>
+table, th, td {
+    padding: 2px 2px 2px 2px;
+}
+body {
+background-color: ECF4FF;
+}
+</style>
 <title>Supplier Page</title>
 
 </head>
@@ -59,9 +67,9 @@
 		</table>
 	</form:form>
 	<br>
-	<h3>Supplier List</h3>
+	<h3><center>Supplier List</center></h3>
 	<c:if test="${!empty supplierList}">
-		<table class="tg">
+		<table class="tg" border="2" align="center">
 			<tr>
 				<th width="80">Supplier ID</th>
 				<th width="120">Supplier Address</th>
